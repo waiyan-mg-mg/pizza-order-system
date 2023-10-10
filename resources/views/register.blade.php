@@ -3,7 +3,8 @@
 
 @section('content')
     <div class="login-form">
-        <form action="" method="post">
+        <form action="{{ route('#register') }}" method="post">
+            @csrf
             <div class="form-group">
                 <label>Username</label>
                 <input class="au-input au-input--full" type="text" name="username" placeholder="Username">
@@ -11,6 +12,14 @@
             <div class="form-group">
                 <label>Email Address</label>
                 <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input class="au-input au-input--full" type="text" name="address" placeholder="address">
+            </div>
+            <div class="form-group">
+                <label>Phone </label>
+                <input class="au-input au-input--full" type="number" name="phone" placeholder="09XXXX">
             </div>
             <div class="form-group">
                 <label>Password</label>
@@ -28,7 +37,7 @@
         <div class="register-link">
             <p>
                 Already have account?
-                <a href="{{ url('/login') }}">Sign In</a>
+                <a href="{{ route('#login') }}">Sign In</a>
             </p>
         </div>
     </div>

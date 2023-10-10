@@ -1,10 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthControllerController;
+use App\Models\AuthController;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('register');
-});
 
 Route::get('/login', function () {
     return view('login');
@@ -18,3 +16,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// login
+Route::redirect('/', 'loginPage');
+Route::get('/loginPage', [AuthControllerController::class, 'loginPage'])->name('#login');
+// register
+Route::get('/registerPage', [AuthControllerController::class, 'registerPage'])->name("#register");
