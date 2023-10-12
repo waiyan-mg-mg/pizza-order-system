@@ -4,9 +4,6 @@ use App\Http\Controllers\AuthControllerController;
 use App\Models\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', function () {
-    return view('login');
-});
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -16,7 +13,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
+Route::redirect('dashboard', '/');
 // login
 Route::redirect('/', 'loginPage');
 Route::get('/loginPage', [AuthControllerController::class, 'loginPage'])->name('#login');
