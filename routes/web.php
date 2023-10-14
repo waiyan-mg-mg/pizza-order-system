@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthControllerController;
+use App\Http\Controllers\CategoryController;
 use App\Models\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,6 @@ Route::redirect('/', 'loginPage');
 Route::get('/loginPage', [AuthControllerController::class, 'loginPage'])->name('#login');
 // register
 Route::get('/registerPage', [AuthControllerController::class, 'registerPage'])->name("#register");
+
+// admin list
+Route::get('/category/list', [CategoryController::class,'list']);
