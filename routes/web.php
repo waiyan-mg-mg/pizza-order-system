@@ -10,16 +10,15 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
+    // admin list
+Route::get('/category/list', [CategoryController::class,'list']);
 });
-Route::redirect('dashboard', '/');
+// Route::redirect('dashboard', '/');
 // login
 Route::redirect('/', 'loginPage');
 Route::get('/loginPage', [AuthControllerController::class, 'loginPage'])->name('#login');
 // register
 Route::get('/registerPage', [AuthControllerController::class, 'registerPage'])->name("#register");
-
-// admin list
-Route::get('/category/list', [CategoryController::class,'list']);
